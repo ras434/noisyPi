@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# https://github.com/ras434/noisyPi
+# Git Repository: https://github.com/ras434/noisyPi
 
 import os
 import subprocess
