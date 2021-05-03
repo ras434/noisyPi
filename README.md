@@ -59,7 +59,7 @@ From the Raspberry Pi:
 ## 4. Edit /etc/rc.local
 From the Raspberry Pi:
 
-Using nano or vi edit /etc/rc.local by adding the following lines at the end:
+Using nano or vi edit **/etc/rc.local**.
 
 **nano example:**
 
