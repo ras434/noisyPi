@@ -64,7 +64,7 @@ Using nano or vi edit /etc/rc.local by adding the following lines at the end:
 ```sh
   # Run noisyPi setup
   amixer sset 'Headphone' 95%
-  python3 /home/pi/mqtt/noisyPi.py
+  python3 /home/pi/noisyPi/noisyPi.py
   exit 0
 ```
 
@@ -72,9 +72,9 @@ Using nano or vi edit /etc/rc.local by adding the following lines at the end:
 From the Raspberry Pi:
 
 ```sh
-  mkdir ~/mqtt
-  cd ~/mqtt
-  wget https://raw.githubusercontent.com/ras434/noisyPi/master/noisyPi.py
+  mkdir ~/noisyPi
+  cd ~/noisyPi
+  wget https://raw.githubusercontent.com/ras434/noisyPi/main/noisyPi.py
 ```
 
 ## 6. Setup Home Assistant
