@@ -61,6 +61,15 @@ From the Raspberry Pi:
 
 Using nano or vi edit /etc/rc.local by adding the following lines at the end:
 
+**nano example:**
+
+```sh
+  sudo nano /etc/rc.local
+```
+
+> Paste the following lines to the end of the file.  
+> **CTRL+X** to exit, **y** to save, and **ENTER** to accept file.
+
 ```sh
   # Run noisyPi setup
   amixer sset 'Headphone' 95%
