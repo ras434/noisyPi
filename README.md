@@ -9,7 +9,7 @@ Raspberry Pi noise generator integration with Home Assistant using MQTT.
   + SoX - Sound eXchange (http://sox.sourceforge.net/)
   + paho-mqtt >= v1.5.1 (https://pypi.org/project/paho-mqtt/)
   + start **~/mqtt/noisypi.py** on boot via _/etc/rc.local_
-+ Home Assistant
++ Home Assistant (https://www.home-assistant.io/)
   + MQTT Broker (Mosquitto)
   + MQTT account (_to authenticate with NoisyPi_)
   + NoisyPi entities in _configuration.yaml_ file
@@ -23,29 +23,40 @@ Raspberry Pi noise generator integration with Home Assistant using MQTT.
 ---
 # Installation
 
+## Steps
 
-## 1. ![Python3](https://docs.python.org/3/_static/py.png) Python3
+
+1. [Install Python3](https://github.com/ras434/noisyPi/tree/master#1--install-python3)
+2. [Install SoX - Sound eXchange](https://github.com/ras434/noisyPi/tree/master#2-sox---sound-exchange)
+3. [Install paho-mqtt](https://github.com/ras434/noisyPi/tree/master#3-install-paho--mqtt)
+4. [Edit /etc/rc.local](https://github.com/ras434/noisyPi/tree/master#4-edit-etcrclocal)
+5. [Clone noisyPi.py](https://github.com/ras434/noisyPi/tree/master#5-clone-noisypipy)
+6. [Setup Home Assistant](https://github.com/ras434/noisyPi/tree/master#6-setup-home-assistant)
+7. [Add noisyPi card to Home Assistant](https://github.com/ras434/noisyPi/tree/master#7-add-noisypi-card-to-home-assistant)
+8. [Reboot Raspberry Pi](https://github.com/ras434/noisyPi/tree/master#8-reboot-raspberry-pi)
+
+## 1. ![Python3](https://docs.python.org/3/_static/py.png) Install Python3
 From the Raspberry Pi:
 ```sh
   sudo apt update
   sudo apt install python3
 ```
 
-## 2. SoX - Sound eXchange
+## 2. Install SoX - Sound eXchange
 From the Raspberry Pi:
 
 ```sh
   apt-get install sox
 ```
 
-## 2. paho-mqtt
+## 3. Install paho-mqtt
 From the Raspberry Pi:
 
 ```sh
   pip install paho-mqtt
 ```
 
-## 4. /etc/rc.local
+## 4. Edit /etc/rc.local
 From the Raspberry Pi:
 
 Using nano or vi edit /etc/rc.local by adding the following lines at the end:
@@ -187,3 +198,13 @@ mode: single
 From Home Assistant:
 In your Lovelace UI, edit your preferred dashboard and add the noisyPi elements:
 ![card](./images/noisyPi_HA_card.png)
+
+
+## 8. Reboot your Raspberry Pi:
+From Raspberry Pi:
+
+```sh
+sudo reboot
+```
+
+Once your Pi completes the reboot it should automatically start **noisypi.py**.
