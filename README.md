@@ -27,13 +27,13 @@ Raspberry Pi noise generator integration with Home Assistant using MQTT.
 
 
 1. [Install Python3](https://github.com/ras434/noisyPi/tree/master#1--install-python3)
-2. [Install SoX - Sound eXchange](https://github.com/ras434/noisyPi/tree/master#2-sox---sound-exchange)
-3. [Install paho-mqtt](https://github.com/ras434/noisyPi/tree/master#3-install-paho--mqtt)
+2. [Install SoX - Sound eXchange](https://github.com/ras434/noisyPi/tree/master#2-install-sox---sound-exchange)
+3. [Install paho-mqtt](https://github.com/ras434/noisyPi/tree/master#3-install-paho-mqtt)
 4. [Edit /etc/rc.local](https://github.com/ras434/noisyPi/tree/master#4-edit-etcrclocal)
 5. [Clone noisyPi.py](https://github.com/ras434/noisyPi/tree/master#5-clone-noisypipy)
 6. [Setup Home Assistant](https://github.com/ras434/noisyPi/tree/master#6-setup-home-assistant)
 7. [Add noisyPi card to Home Assistant](https://github.com/ras434/noisyPi/tree/master#7-add-noisypi-card-to-home-assistant)
-8. [Reboot Raspberry Pi](https://github.com/ras434/noisyPi/tree/master#8-reboot-raspberry-pi)
+8. [Reboot Your Raspberry Pi](https://github.com/ras434/noisyPi/tree/master#8-reboot-your-raspberry-pi)
 
 ## 1. ![Python3](https://docs.python.org/3/_static/py.png) Install Python3
 From the Raspberry Pi:
@@ -194,13 +194,13 @@ action:
 mode: single
 ```
 
-## 7. Add noisyPi card to Home Assistant
+## 7. Add noisyPi Card to Home Assistant
 From Home Assistant:
 In your Lovelace UI, edit your preferred dashboard and add the noisyPi elements:
 ![card](./images/noisyPi_HA_card.png)
 
 
-## 8. Reboot your Raspberry Pi:
+## 8. Reboot Your Raspberry Pi:
 From Raspberry Pi:
 
 ```sh
