@@ -13,7 +13,7 @@ import sys
 import paho.mqtt.publish as publish
 import paho.mqtt.client as mqtt
 
-hostname = "ha"             # Add the DNS or IP address of your MQTT server/broker (i.e. Mosquitto)
+hostname = "ha"              # Add the DNS or IP address of your MQTT server/broker (i.e. Mosquitto)
 username = "mqtt"           # Change to your desired MQTT username
 password = "mqtt1234"       # Change to the password for your chosen MQTT username
 
@@ -155,7 +155,7 @@ def _mqtt_on_connect(_mqttc, userdata, flags, rc):
   
 def _mqtt_on_disconnect(_mqttc, userdata, rc):
   print(f"{_dateTime()}on_disconnect(client: {client_name}, userdata: {userdata}, rc: {rc})")
-  _mqttc.connected_flag=False
+  # _mqttc.connected_flag=False
 
 def _mqtt_on_message(_mqttc, userdata, msg):
   _payload = str(msg.payload.decode('utf-8')).rstrip()
@@ -182,6 +182,12 @@ def _mqtt_on_subscribe(_mqttc, userdata, mid, granted_qos):
 def _mqtt_on_unsubscribe(_mqttc, userdata, mid, granted_qos):
   print(f"{_dateTime()}on_unsubscribe(client: {client_name}, userdata: {userdata}, rc: {mid}, granted_qos: {granted_qos})")
 
+def _mqtt_on_log(_mqtcc, userdata, level, buf):
+  print(f"{_dateTime()}on_log: {buf}")
+
+def fullJustify(text, length, fill):
+  r = length - len(text)
+  return "[ " + text + " ]" + fill * r
 
 _mqttc = mqtt.Client(client_name, clean_session=_clean_session)
 _mqttc.enable_logger()
@@ -191,11 +197,12 @@ _mqttc.on_message = _mqtt_on_message
 _mqttc.on_publish = _mqtt_on_publish
 _mqttc.on_subscribe = _mqtt_on_subscribe
 _mqttc.on_unsubscribe = _mqtt_on_unsubscribe
+# _mqttc.on_log=_mqtt_on_log                                  # Uncomment line to enable MQTT logging
 
 if username is not None:
     _mqttc.username_pw_set(username, password)
 
-_mqttc.connect(hostname, port=1883, keepalive=60)
+_mqttc.connect(hostname, port=1883, keepalive=60)             # If MQTT not available, generates "ConnectionRefusedError" exception
 try:
   _mqttc.loop_start()
   time.sleep(1)
@@ -213,9 +220,9 @@ pub(availability_topic, "online")
 
 try:
   while _mqttc.connected_flag:
-    print(f"{_dateTime()}===========[ Interval Update ]======================")
+    print(f"{_dateTime()}===========" + fullJustify("Interval Update", 50, "="))
     publishUpdate()
-    print(f"{_dateTime()}===========[ Waiting for {_publishInterval} seconds... ]===========\n")
+    print(f"{_dateTime()}===========" + fullJustify(f"Waiting for {_publishInterval} seconds...", 50, "=") + "\n")
     time.sleep(_publishInterval)
     
 
