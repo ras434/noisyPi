@@ -1,6 +1,10 @@
 # noisyPi
 Raspberry Pi noise generator integration with Home Assistant using MQTT.
 
+[![GitHub Release][releases-shield]][releases]
+![Project Stage][project-stage-shield]
+[![License][license-shield]](LICENSE.md)
+
 ---
 # Requirements
 + Raspberry Pi
